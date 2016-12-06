@@ -44,7 +44,7 @@ gulp run
 
 ## Other features
 
-If you want to develop while coding, better use :
+If you want to develop while displaying, better use :
 ```
 gulp watch
 ```
