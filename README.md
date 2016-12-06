@@ -32,6 +32,11 @@ Build it:
 gulp build
 ```
 
+Don't forget to start your RabbitMQ server : 
+```
+rabbitmq-server
+```
+
 Start it:
 ```
 gulp run
