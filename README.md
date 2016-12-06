@@ -34,7 +34,7 @@ gulp build
 
 Don't forget to start your RabbitMQ server : 
 ```
-rabbitmq-server
+sudo rabbitmq-server
 ```
 
 Start it:
