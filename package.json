@@ -15,7 +15,7 @@
     "url": "https://github.com/r-mach/RabbitMGR.git"
   },
   "author": "Rémi MACH",
-  "license": "Open",
+  "license": "Beerware",
   "dependencies": {
     "amqp": "^0.2.6",
     "amqplib": "^0.5.1",

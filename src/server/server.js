@@ -4,7 +4,7 @@ var app = express();
 
 app.use('/', express.static('bin/client/'));
 const server = app.listen(3000, function () {
-    console.log('Application listening.');
+    console.log('Application listening. (Default : http://localhost:3000 ).');
 });
 
 const io = require('socket.io')(server);

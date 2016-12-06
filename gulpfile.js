@@ -72,8 +72,7 @@ gulp.task('todo', ['lint'], function () {
 gulp.task('run', ['build'], function () {
     nodemon({
         delay: 10,
-        script: './server/server.js',
-        cwd: "./bin/",
+        script: './bin/server/server.js',
         ext: 'html js css'
     })
         .on('restart', function () {
