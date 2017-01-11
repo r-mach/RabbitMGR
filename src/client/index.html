@@ -1,66 +1,142 @@
 ﻿<!doctype html>
-<html lang="en">
+<html lang="en" style="height: 100%">
 <head>
-    <title>Simple RabbitMGR chat page</title>
+    <title>Simple RabbitMGR demo page</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .input_hidden {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .selected {
+            background-color: #ccc;
+            border-radius: 20px;
+        }
+
+        #emotion label {
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        #emotion label img {
+            padding: 5px;
+            margin: 15px;
+        }
+
+        #navbar a:link {
+            color: #888d91;
+            font-family: inherit
+        }
+
+        #navbar a:visited {
+            color: #888d91;
+            font-family: inherit
+        }
+
+        #navbar a:hover {
+            color: #888d91;
+            font-family: inherit
+        }
+
+        #navbar a:active {
+            color: #888d91;
+            font-family: inherit
+        }
+
+    </style>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
-<body>
-<div class="container">
+<body style="height: 100%">
+<div id="navbar" style="height:50px;width:100%;background-color:#f5f5f5;padding:10px;">
+    <span style='float:left;margin-left:80px;font-size:18px; font-weight:bold; color:#888d91;font-family:inherit'><a
+            href="index.html">RabbitMGR</a></span>
+    <span style="float:right;margin-right:30px;">
+    <!-- Place this tag where you want the button to render. -->
+    <a class="github-button" href="https://github.com/r-mach/RabbitMGR/issues" data-icon="octicon-issue-opened"
+       data-style="mega" aria-label="Issue r-mach/RabbitMGR on GitHub">Issue</a>
+        <!-- Place this tag where you want the button to render. -->
+    <a class="github-button" href="https://github.com/r-mach/RabbitMGR/archive/master.zip"
+       data-icon="octicon-cloud-download" data-style="mega"
+       aria-label="Download r-mach/RabbitMGR on GitHub">Download</a>
+    </span>
+    <span style="float:right;margin-right:40px;">
+    <!-- Place this tag where you want the button to render. -->
+    <a class="github-button" href="https://github.com/r-mach/RabbitMGR" data-icon="octicon-star" data-style="mega"
+       data-count-href="/r-mach/RabbitMGR/stargazers" data-count-api="/repos/r-mach/RabbitMGR#stargazers_count"
+       data-count-aria-label="# stargazers on GitHub" aria-label="Star r-mach/RabbitMGR on GitHub">Star</a>
+        <!-- Place this tag where you want the button to render. -->
+    <a class="github-button" href="https://github.com/r-mach/RabbitMGR/subscription" data-icon="octicon-eye"
+       data-style="mega" data-count-href="/r-mach/RabbitMGR/watchers"
+       data-count-api="/repos/r-mach/RabbitMGR#subscribers_count" data-count-aria-label="# watchers on GitHub"
+       aria-label="Watch r-mach/RabbitMGR on GitHub">Watch</a>
+        <!-- Place this tag where you want the button to render. -->
+    <a class="github-button" href="https://github.com/r-mach/RabbitMGR/fork" data-icon="octicon-repo-forked"
+       data-style="mega" data-count-href="/r-mach/RabbitMGR/network"
+       data-count-api="/repos/r-mach/RabbitMGR#forks_count" data-count-aria-label="# forks on GitHub"
+       aria-label="Fork r-mach/RabbitMGR on GitHub">Fork</a>
+    </span>
+</div>
+<div id="body-id" class="container" style="height: 100%">
     <div class="header clearfix" style="margin-top:20px;">
-        <h3 class="text-muted">RabbitMGR Sample Page</h3>
+        <h3 class="text-muted">Demo page</h3>
     </div>
 
-    <div id="connectJumb" class="jumbotron text-xs-center">
+    <div class="jumbotron text-xs-center">
 
-        <h1 class="display-3">Log into the chat</h1>
-        <p class="lead">Enter your username</p>
-        <div class="form-group" style="max-width:350px;margin-left:auto;margin-right:auto;">
-            <input type="text" class="form-control" style="text-align:center;" id="username" name="username"
-                   placeholder="e.g: Bobby95">
+        <h1 class="display-3">Select your mode</h1>
+        <hr/>
+        <p class="lead">Screen display</p>
+        <div id="emotion">
+            <input type="radio" name="emotion" id="1-screen" value="1"/>
+            <label for="1-screen"><img src="img/1-screen.png"/><br/>Simple</label>
+
+            <input type="radio" name="emotion" id="2-screen" value="2"/>
+            <label for="2-screen"><img src="img/2-screen.png"/><br/>Double</label>
+
+            <input type="radio" name="emotion" id="3-screen" value="3"/>
+            <label for="3-screen"><img src="img/3-screen.png"/><br/>Triple</label>
         </div>
-        <p><a class="btn btn-lg btn-success" href="#" role="button" id="login">Connect</a></p>
-    </div>
+        <hr/>
+        <br/>
+        <p class="lead">Demo</p>
+        <div id="demo" class="text-xs-left">
+            <input type="radio" name="demo" id="demo-1" value="demo-1-simple-messaging.html"/>
+            <label for="demo-1">Demo 1 - Simple messaging demonstration using basic configurations.</label><br/>
 
-    <div id="tchatJumb" class="jumbotron text-xs-center" style="display:none;">
+            <input type="radio" name="demo" id="demo-2" value="demo-2-work-queues-broker-stress.html"/>
+            <label for="demo-2">Demo 2 - Broker test / stress-test.</label><br/>
 
-        <h1 class="display-5">Discussions</h1>
-        <p id="p_username">D</p>
-        <div id="tchat_dialDisplay"
-             style="width:100%;background-color:#f2f1fa;height:350px;margin-bottom:20px;overflow:auto;"></div>
-        <div style="width:100%;">
-            <div class="form-group" style="width:20%;display:inline-block;">
-                <input type="text" class="form-control" style="text-align:center;" id="tchat_dialUsername"
-                       placeholder="Dest  (e.g.  : Alice95)">
-            </div>
-            <div class="form-group" style="width:65%;display:inline-block;">
-                <input type="text" class="form-control" style="text-align:center;" id="tchat_dialMessage"
-                       placeholder="Message (e.g: Hello Alice !)">
-            </div>
-            <p style="display:inline-block;width:90px;"><a class="btn btn-lg btn-success"
-                                                           style="padding-top:5px; padding-bottom:5px;" href="#"
-                                                           role="button" id="tchat_dialBtn">Send</a></p>
+            <input type="radio" name="demo" id="demo-3" value="demo-3-publish-subscribe-fanout.html"/>
+            <label for="demo-3">Demo 3 - Publish/subscribe on exchange with fanout mode.</label><br/>
+
+            <input type="radio" name="demo" id="demo-4" value="demo-4-publish-subscribe-direct.html"/>
+            <label for="demo-4">Demo 4 - Publish/subscribe on direct exchange. Demo with message type.</label>
         </div>
+        <hr/>
+
+        <p><a class="btn btn-lg btn-success" href="#" role="button" id="start_demo">Start demo</a></p>
     </div>
 
-
+</div> <!-- /container -->
+<div class="container">
     <div class="row marketing">
         <div class="col-lg-6">
             <h4>Rémi MACH</h4>
             <p>Student Engineer in computer science, 3rd year - spe. GLRT.</p>
 
             <h4>Anna FRIRY</h4>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet
-                fermentum.</p>
+            <p>Student Engineer in telecommunication science, 3rd year - spe. GLRT</p>
 
         </div>
 
         <div class="col-lg-6">
             <h4>Alexandre ROUSSEAU</h4>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+            <p>Student Engineer in telecommunication science, 3rd year - spe. GLRT</p>
 
             <h4>Nail RADI</h4>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet
-                fermentum.</p>
+            <p>Student Engineer in telecommunication science, 3rd year - spe. GLRT</p>
 
         </div>
     </div>
@@ -68,12 +144,17 @@
     <footer class="footer">
         <p>&copy; RabbitMGR 2016</p>
     </footer>
-
-</div> <!-- /container -->
-
-
-<!-- JS -->
+</div>
 <script src="//code.jquery.com/jquery-2.2.0.min.js"></script>
-<script src="js/app.js"></script>
+<script src="demo/demo.loader.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#emotion input:radio').addClass('input_hidden');
+        $('#emotion label').click(function () {
+            $(this).addClass('selected').siblings().removeClass('selected');
+        });
+    });
+</script>
+
 </body>
 </html>

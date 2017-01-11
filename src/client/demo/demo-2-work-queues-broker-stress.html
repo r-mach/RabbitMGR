@@ -1,0 +1,57 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <title>Simple RabbitMGR chat page</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="header clearfix" style="margin-top:20px;">
+        <h3 class="text-muted">RabbitMGR Sample Page</h3>
+    </div>
+
+    <div id="connectJumb" class="jumbotron text-xs-center">
+
+        <h1 class="display-3">Log into the chat</h1>
+        <p class="lead">Enter your username</p>
+        <div class="form-group" style="max-width:350px;margin-left:auto;margin-right:auto;">
+            <input type="text" class="form-control" style="text-align:center;" id="username" name="username"
+                   placeholder="e.g: Bobby95">
+        </div>
+        <p><a class="btn btn-lg btn-success" href="#" role="button" id="login">Connect</a></p>
+    </div>
+
+    <div id="tchatJumb" class="jumbotron text-xs-center" style="display:none;">
+
+        <h1 class="display-5">Discussions</h1>
+        <p id="p_username">D</p>
+        <p><span>Messages reçus : </span><span id="span_msgtotal">0</span></p>
+        <div id="tchat_dialDisplay"
+             style="width:100%;background-color:#f2f1fa;height:350px;margin-bottom:20px;overflow:auto;"></div>
+        <div style="width:100%;">
+            <div class="form-group" style="width:20%;display:inline-block;">
+                <input type="text" class="form-control" style="text-align:center;" id="tchat_dialUsername"
+                       placeholder="Dest  (e.g.  : Alice95)">
+            </div>
+            <div class="form-group" style="width:65%;display:inline-block;">
+                <input type="text" class="form-control" style="text-align:center;" id="tchat_dialMessage"
+                       placeholder="Message (e.g: Hello Alice !)">
+            </div>
+            <p style="display:inline-block;width:100%;"><span><a class="btn btn-lg btn-success"
+                                                                 style="padding-top:5px; padding-bottom:5px;" href="#"
+                                                                 role="button" id="tchat_dialBtn">Send</a></span> <span><a
+                    class="btn btn-lg btn-success"
+                    style="padding-top:5px; padding-bottom:5px;" href="#"
+                    role="button" id="tchat_dialBtn100">Send x100</a></span></p>
+        </div>
+    </div>
+
+
+</div> <!-- /container -->
+
+
+<!-- JS -->
+<script src="//code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>
