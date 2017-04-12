@@ -51,7 +51,7 @@ gulp watch
 
 ## Authors
 Made by 
-* Rémi MACH
+* [Rémi MACH](https://github.com/r-mach)
 * Alexandre ROUSSEAU
 * Anna FRIRY
 * Nail RADI
